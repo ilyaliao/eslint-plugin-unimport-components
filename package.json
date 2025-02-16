@@ -1,0 +1,59 @@
+{
+  "name": "eslint-plugin-unimport-component",
+  "type": "module",
+  "version": "0.0.0",
+  "packageManager": "pnpm@10.4.0",
+  "description": "Insert Component imports automatically in ESLint.",
+  "author": "IlyaL <ilya.l.dev@gmail.com>",
+  "license": "MIT",
+  "homepage": "https://github.com/ilyaliao/eslint-plugin-unimport-component#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyaliao/eslint-plugin-unimport-component.git"
+  },
+  "bugs": "https://github.com/ilyaliao/eslint-plugin-unimport-component/issues",
+  "keywords": [],
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "dev": "unbuild --stub",
+    "lint": "eslint .",
+    "prepublishOnly": "nr build",
+    "release": "bumpp && pnpm publish",
+    "start": "tsx src/index.ts",
+    "test": "vitest",
+    "typecheck": "tsc --noEmit",
+    "prepare": "simple-git-hooks"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.2.1",
+    "@antfu/ni": "^23.3.1",
+    "@antfu/utils": "^9.0.0",
+    "@types/node": "^22.13.4",
+    "bumpp": "^10.0.3",
+    "eslint": "^9.20.1",
+    "lint-staged": "^15.4.3",
+    "pnpm": "^10.4.0",
+    "simple-git-hooks": "^2.11.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "unbuild": "^3.3.1",
+    "vite": "^6.1.0",
+    "vitest": "^3.0.5"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "lint-staged": {
+    "*": "eslint --fix"
+  }
+}

@@ -8,6 +8,14 @@
 
 Insert Component imports automatically in ESLint.
 
+## Usages
+
+Refer to [this file](./eslint.config.ts), where you can setup file paths and use it to insert imports.
+
+## Credits
+
+- This project is heavily inspired by [eslint-plugin-unimport](https://github.com/antfu/eslint-plugin-unimport)
+
 ## License
 
 [MIT](./LICENSE) License © [IlyaL](https://github.com/ilyaliao)

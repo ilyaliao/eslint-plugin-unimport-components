@@ -23,17 +23,18 @@ export default createRule({
       context,
       context.options[0] || [],
       (node, item) => {
+        const resolvedFrom = isAbsolute(item.from)
+          ? betterRelative(dirname(context.physicalFilename), item.from)
+          : item.from
+
         context.report({
           node,
           messageId: 'missingImport',
           data: {
-            name: item.name,
-            from: item.from,
+            name: item.name === 'default' ? item.as : item.name,
+            from: resolvedFrom,
           },
           fix(fixer) {
-            const resolvedFrom = isAbsolute(item.from)
-              ? betterRelative(dirname(context.physicalFilename), item.from)
-              : item.from
             const program = context.sourceCode.ast
             const target = program.body[0] || program
             const importName = item.name === 'default'

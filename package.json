@@ -1,7 +1,7 @@
 {
   "name": "eslint-plugin-unimport-components",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "packageManager": "pnpm@10.4.0",
   "description": "Insert Components imports automatically in ESLint.",
   "author": "IlyaL <ilyaliao324@gmail.com>",

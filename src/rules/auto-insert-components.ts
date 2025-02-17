@@ -3,11 +3,11 @@ import { createImportsListeners } from '../listener'
 import { betterRelative, createRule } from '../utils'
 
 export default createRule({
-  name: 'auto-insert-component',
+  name: 'auto-insert-components',
   meta: {
     type: 'problem',
     docs: {
-      description: 'Auto insert missing component imports',
+      description: 'Auto insert missing components imports',
     },
     messages: {
       missingImport: `Unimport entry '{{name}}' from '{{from}}' is not imported.`,

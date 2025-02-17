@@ -2,7 +2,7 @@ import type { Linter } from 'eslint'
 import type { Import } from 'unimport'
 import { plugin } from '../plugins'
 
-export interface UnimportAutoInsertOptions {
+export interface UnimportComponentsAutoInsertOptions {
   /**
    * The imports registry.
    */
@@ -22,18 +22,18 @@ export interface UnimportAutoInsertOptions {
 }
 
 /**
- * Create a flat config that will report missing component imports and auto insert them.
+ * Create a flat config that will report missing components imports and auto insert them.
  */
-export async function createAutoInsert(options: UnimportAutoInsertOptions): Promise<Linter.FlatConfig> {
+export async function createAutoInsert(options: UnimportComponentsAutoInsertOptions): Promise<Linter.FlatConfig> {
   return {
-    name: 'unimport:auto-insert-component',
+    name: 'unimport:auto-insert-components',
     plugins: {
       unimport: plugin as any,
     },
     files: options.include ?? ['**/*.?([cm])[jt]s?(x)', '**/*.vue'],
     ignores: options.exclude ?? ['**/*.md?(x)/**'],
     rules: {
-      'unimport/auto-insert-component': [
+      'unimport/auto-insert-components': [
         'error',
         options.imports,
       ],

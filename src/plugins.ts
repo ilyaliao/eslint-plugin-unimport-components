@@ -1,6 +1,6 @@
 import type { TSESLint } from '@typescript-eslint/utils'
 import { version } from '../package.json'
-import autoInsertComponent from './rules/auto-insert-component'
+import autoInsertComponents from './rules/auto-insert-components'
 
 export const plugin: TSESLint.Linter.Plugin = {
   meta: {
@@ -8,6 +8,6 @@ export const plugin: TSESLint.Linter.Plugin = {
     version,
   },
   rules: {
-    'auto-insert-component': autoInsertComponent,
+    'auto-insert-components': autoInsertComponents,
   },
 }

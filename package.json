@@ -1,22 +1,22 @@
 {
-  "name": "eslint-plugin-unimport-component",
+  "name": "eslint-plugin-unimport-components",
   "type": "module",
   "version": "0.0.1",
   "packageManager": "pnpm@10.4.0",
-  "description": "Insert Component imports automatically in ESLint.",
+  "description": "Insert Components imports automatically in ESLint.",
   "author": "IlyaL <ilyaliao324@gmail.com>",
   "license": "MIT",
-  "homepage": "https://github.com/ilyaliao/eslint-plugin-unimport-component#readme",
+  "homepage": "https://github.com/ilyaliao/eslint-plugin-unimport-components#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ilyaliao/eslint-plugin-unimport-component.git"
+    "url": "git+https://github.com/ilyaliao/eslint-plugin-unimport-components.git"
   },
-  "bugs": "https://github.com/ilyaliao/eslint-plugin-unimport-component/issues",
+  "bugs": "https://github.com/ilyaliao/eslint-plugin-unimport-components/issues",
   "keywords": [
     "eslint",
     "eslint-plugin",
     "unimport",
-    "unimport-component"
+    "unimport-components"
   ],
   "sideEffects": false,
   "exports": {

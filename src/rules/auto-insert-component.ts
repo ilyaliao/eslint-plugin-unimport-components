@@ -34,8 +34,14 @@ export default createRule({
             const resolvedFrom = isAbsolute(item.from)
               ? betterRelative(dirname(context.physicalFilename), item.from)
               : item.from
-            const body = context.sourceCode.ast.body
-            return fixer.insertTextBefore(body[0], `import ${item.name} from '${resolvedFrom}'\n`)
+            const program = context.sourceCode.ast
+            const target = program.body[0] || program
+            const importName = item.name === 'default'
+              ? item.as
+              : (!item.as || item.name === item.as)
+                  ? `{ ${item.name} }`
+                  : `{ ${item.name} as ${item.as} }`
+            return fixer.insertTextBefore(target, `import ${importName} from '${resolvedFrom}'\n`)
           },
         })
       },

@@ -41,6 +41,7 @@
     "@typescript-eslint/scope-manager": "^8.24.0",
     "@typescript-eslint/utils": "^8.24.0",
     "debug": "^4.4.0",
+    "html-tags": "^4.0.0",
     "pathe": "^2.0.3",
     "unimport": "^4.1.1"
   },

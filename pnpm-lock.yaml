@@ -17,6 +17,9 @@ importers:
       debug:
         specifier: ^4.4.0
         version: 4.4.0
+      html-tags:
+        specifier: ^4.0.0
+        version: 4.0.0
       pathe:
         specifier: ^2.0.3
         version: 2.0.3
@@ -1797,6 +1800,10 @@ packages:
 
   hosted-git-info@2.8.9:
     resolution: {integrity: sha512-mxIDAb9Lsm6DoOJ7xH+5+X4y1LU/4Hi50L9C5sIswK3JzULS4bwk1FvjdBgvYR4bzT4tuUQiC15FE2f5HbLvYw==}
+
+  html-tags@4.0.0:
+    resolution: {integrity: sha512-KM1SNmemQtsD+OTInZTYKZNbyPzzVrjMR2Iz1Np+Y+bcxUh0dgKF4NtylJVkGZRLe3NklHizJ5k1Vd3ug1uTPA==}
+    engines: {node: '>=18.20'}
 
   human-signals@5.0.0:
     resolution: {integrity: sha512-AXcZb6vzzrFAUE61HnN4mpLqd/cSIwNQjtNWR0euPm6y0iqx3G4gOXaIDdtdDwZmhwe82LA6+zinmW4UBWVePQ==}
@@ -4757,6 +4764,8 @@ snapshots:
   hookable@5.5.3: {}
 
   hosted-git-info@2.8.9: {}
+
+  html-tags@4.0.0: {}
 
   human-signals@5.0.0: {}
 

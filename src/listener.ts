@@ -4,6 +4,7 @@ import type { RuleContext, RuleListener } from '@typescript-eslint/utils/ts-esli
 import type { Import } from 'unimport'
 import { analyze } from '@typescript-eslint/scope-manager'
 import Debug from 'debug'
+import htmlTags from 'html-tags'
 
 const debug = Debug('unimport:eslint')
 
@@ -37,16 +38,9 @@ export function createImportsListeners(
       _importsMap = new Map<string, Import>()
 
       imports.forEach((i) => {
-        _importsMap!.set(i.as || i.name, i)
+        const _name = (i.as || i.name).toLowerCase()
+        _importsMap!.set(_name, i)
       })
-
-      if (!_importsMap.has('testcom')) {
-        _importsMap!.set('testcom', {
-          from: './components/TestCom.vue',
-          name: 'TestCom',
-          as: 'TestCom',
-        })
-      }
     }
 
     return _importsMap
@@ -112,13 +106,16 @@ export function createImportsListeners(
           return
 
         switch (node.type) {
-          case 'VElement':
+          case 'VElement': {
             for (const child of node.children)
               visit(child)
 
-            if (node.name === 'testcom')
-              checkId(node)
+            if (htmlTags.includes(node.name))
+              return
+
+            checkId(node)
             return
+          }
           case 'VAttribute':
           case 'VText':
           case 'VExpressionContainer':

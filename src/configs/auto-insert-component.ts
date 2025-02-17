@@ -24,7 +24,7 @@ export interface UnimportAutoInsertOptions {
 /**
  * Create a flat config that will report missing component imports and auto insert them.
  */
-export function createAutoInsert(options: UnimportAutoInsertOptions): Linter.FlatConfig {
+export async function createAutoInsert(options: UnimportAutoInsertOptions): Promise<Linter.FlatConfig> {
   return {
     name: 'unimport:auto-insert-component',
     plugins: {

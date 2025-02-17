@@ -7,5 +7,5 @@ export function betterRelative(from: string, to: string): string {
   const r = relative(from, to).replace(/\.\w+/g, '')
   if (r.startsWith('../'))
     return r
-  return `./${r}`
+  return `./${r}.vue`
 }

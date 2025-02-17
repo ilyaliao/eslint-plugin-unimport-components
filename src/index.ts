@@ -1,2 +1,5 @@
-export const one = 1
-export const two = 2
+import { plugin } from './plugins'
+
+export * from './configs/auto-insert-component'
+
+export default plugin

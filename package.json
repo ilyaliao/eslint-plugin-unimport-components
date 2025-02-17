@@ -26,7 +26,7 @@
   "scripts": {
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "lint": "eslint .",
+    "lint": "eslint --flag unstable_ts_config play",
     "prepublishOnly": "nr build",
     "release": "bumpp && pnpm publish",
     "start": "tsx src/index.ts",
@@ -34,10 +34,21 @@
     "typecheck": "tsc --noEmit",
     "prepare": "simple-git-hooks"
   },
+  "peerDependencies": {
+    "eslint": "^9.0.0 || ^8.45.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/scope-manager": "^8.24.0",
+    "@typescript-eslint/utils": "^8.24.0",
+    "debug": "^4.4.0",
+    "pathe": "^2.0.3",
+    "unimport": "^4.1.1"
+  },
   "devDependencies": {
     "@antfu/eslint-config": "^4.2.1",
     "@antfu/ni": "^23.3.1",
     "@antfu/utils": "^9.0.0",
+    "@types/debug": "^4.1.12",
     "@types/node": "^22.13.4",
     "bumpp": "^10.0.3",
     "eslint": "^9.20.1",
@@ -47,13 +58,15 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "unbuild": "^3.3.1",
-    "vite": "^6.1.0",
-    "vitest": "^3.0.5"
+    "vite": "^5.4.11",
+    "vitest": "^2.1.5",
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --fix"
+    "*": "eslint --flag unstable_ts_config --fix"
   }
 }

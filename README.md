@@ -10,6 +10,14 @@ Insert Components imports automatically in ESLint.
 
 ## Usages
 
+### With Nuxt
+
+You can use the [nuxt-eslint-auto-components-import](https://github.com/ilyaliao/nuxt-eslint-auto-components-import) module directly, which integrates this plugin.
+
+> Suggested to use with [nuxt-eslint-auto-explicit-import](https://github.com/antfu/nuxt-eslint-auto-explicit-import)
+
+### Setup Manually
+
 Refer to [this file](./eslint.config.ts), where you can setup file paths and use it to insert imports.
 
 ## Credits

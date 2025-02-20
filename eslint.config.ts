@@ -2,7 +2,7 @@ import { resolve } from 'node:path'
 // @ts-check
 import antfu from '@antfu/eslint-config'
 import { scanFilesFromDir } from 'unimport'
-import { createAutoInsert } from './src'
+import { createAutoComponentsInsert } from './src'
 
 export default antfu(
   {
@@ -18,7 +18,7 @@ export default antfu(
     },
   ])
 
-  return createAutoInsert({
+  return createAutoComponentsInsert({
     imports: files.map(file => ({
       name: 'default',
       as: file.split('/').pop()?.replace('.vue', '') || '',

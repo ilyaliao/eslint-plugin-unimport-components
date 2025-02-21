@@ -10,7 +10,7 @@ export default createRule({
       description: 'Auto insert missing components imports',
     },
     messages: {
-      missingImport: `Unimport entry '{{name}}' from '{{from}}' is not imported.`,
+      missingImport: `Missing import '{{name}}' from '{{from}}'.`,
     },
     schema: [
       { type: 'array', items: { type: 'any' } },

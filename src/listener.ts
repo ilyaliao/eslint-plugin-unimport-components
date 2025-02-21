@@ -6,10 +6,10 @@ import { analyze } from '@typescript-eslint/scope-manager'
 import Debug from 'debug'
 import htmlTags from 'html-tags'
 
-const debug = Debug('unimport:eslint')
+const debug = Debug('unimport-components:eslint')
 
 /**
- * Create a rule listener with a callback the will be called on every unimport entry found.
+ * Create a rule listener with a callback the will be called on every components entry found.
  */
 export function createImportsListeners(
   context: RuleContext<string, any>,

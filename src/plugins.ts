@@ -4,10 +4,10 @@ import autoInsertComponents from './rules/auto-insert-components'
 
 export const plugin: TSESLint.Linter.Plugin = {
   meta: {
-    name: 'unimport-component',
+    name: 'unimport-components',
     version,
   },
   rules: {
     'auto-insert-components': autoInsertComponents,
   },
-}
+} as TSESLint.Linter.Plugin

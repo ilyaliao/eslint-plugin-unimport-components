@@ -6,14 +6,14 @@ export interface Import {
   /**
    * Import as this name
    */
-  as?: string
+  as: string
   /**
    * Import from this path
    */
-  from?: string
+  from: string
 }
 
-export interface UnimportComponentsAutoInsertOptions {
+export interface AutoInsertComponentsOptions {
   /**
    * The imports registry.
    */

@@ -1,25 +1,6 @@
 import type { Linter } from 'eslint'
-import type { Import } from 'unimport'
+import type { UnimportComponentsAutoInsertOptions } from '../types'
 import { plugin } from '../plugins'
-
-export interface UnimportComponentsAutoInsertOptions {
-  /**
-   * The imports registry.
-   */
-  imports: Import[]
-  /**
-   * Glob patterns to include
-   *
-   * @default ['**\/*.?([cm])[jt]s?(x)', '**\/*.vue']
-   */
-  include?: string[]
-  /**
-   * Glob patterns to exclude
-   *
-   * @default ['**\/*.md?(x)/**']
-   */
-  exclude?: string[]
-}
 
 /**
  * Create a flat config that will report missing components imports and auto insert them.

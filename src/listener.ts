@@ -1,7 +1,7 @@
 import type { Scope, ScopeManager } from '@typescript-eslint/scope-manager'
 import type { TSESTree } from '@typescript-eslint/utils'
 import type { RuleContext, RuleListener } from '@typescript-eslint/utils/ts-eslint'
-import type { Import } from 'unimport'
+import type { Import } from './types'
 import { analyze } from '@typescript-eslint/scope-manager'
 import Debug from 'debug'
 import htmlTags from 'html-tags'

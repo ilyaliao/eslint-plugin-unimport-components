@@ -47,8 +47,7 @@
     "@typescript-eslint/utils": "^8.24.0",
     "debug": "^4.4.0",
     "html-tags": "^4.0.0",
-    "pathe": "^2.0.3",
-    "unimport": "^4.1.1"
+    "pathe": "^2.0.3"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.2.1",
@@ -64,6 +63,7 @@
     "tsx": "^4.19.2",
     "typescript": "^5.7.3",
     "unbuild": "^3.3.1",
+    "unimport": "^4.1.2",
     "vite": "^5.4.11",
     "vitest": "^2.1.5",
     "vue": "^3.5.13",

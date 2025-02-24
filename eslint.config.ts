@@ -10,7 +10,7 @@ export default antfu(
     vue: true,
   },
 ).append((async () => {
-  const path = resolve(__dirname, '*/components/**/*.vue')
+  const path = resolve(__dirname, '*/components/**/*.{md,vue}')
   const files = await scanFilesFromDir([
     {
       glob: path,
@@ -21,7 +21,7 @@ export default antfu(
   return createAutoComponentsInsert({
     imports: files.map(file => ({
       name: 'default',
-      as: file.split('/').pop()?.replace('.vue', '') || '',
+      as: file.split('/').pop()?.replace(/\.(vue|md)$/, '') || '',
       from: file,
     })),
   })

@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { computed, reactive, ref, toValue } from 'vue'
 import { useRoute } from 'vue-router'
+// @ts-expect-error unplugin-vue-markdown/vite
+import MarkdownA from './components/MarkdownA.md'
 import TestCom1 from './components/TestCom1.vue'
 import TestCom from './components/TestCom.vue'
 
@@ -14,5 +16,6 @@ const b = computed(() => a.value + 1)
     {{ reactive(useRoute()).path }}
     <TestCom />
     <TestCom1 />
+    <MarkdownA />
   </div>
 </template>

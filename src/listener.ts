@@ -49,18 +49,19 @@ export function createImportsListeners(
   function checkId(node: TSESTree.Identifier): void {
     if (typeof node.name !== 'string')
       return
+    const _name = node.name.toLowerCase()
     // Already imported
-    if (importedNames.has(node.name))
+    if (importedNames.has(_name))
       return
     const importsMap = getImportsMap()
-    const item = importsMap.get(node.name)
+    const item = importsMap.get(_name)
     if (!item)
       return
     if (item.from === context.filename)
       return
 
     const scopeManager = getScopeManager()
-    if (importedNames.has(node.name))
+    if (importedNames.has(_name))
       return
 
     let parent: TSESTree.Node | undefined = node.parent
@@ -86,11 +87,35 @@ export function createImportsListeners(
       currentScope = currentScope.upper
     }
 
-    importedNames.add(node.name)
+    importedNames.add(_name)
     onImportEntry(node, item)
   }
 
   const listeners: RuleListener = {
+    Identifier(node) {
+      if (/Declaration|Specifier|Property/.test(node.parent.type))
+        return
+      // For member expression, we only check the first part
+      if (node.parent.type === 'MemberExpression' && node.parent.object !== node)
+        return
+
+      // We only check variable
+      if (node.parent.type !== 'VariableDeclarator')
+        return
+
+      // We only collect defineAsyncComponent
+      if (
+        !node.parent.init
+        || node.parent.init.type !== 'CallExpression'
+        || !('callee' in node.parent.init)
+        || node.parent.init.callee.type !== 'Identifier'
+        || node.parent.init.callee.name !== 'defineAsyncComponent'
+      ) {
+        return
+      }
+
+      importedNames.add(node.name.toLowerCase())
+    },
     ImportDeclaration(node) {
       node.specifiers.forEach((s) => {
         importedNames.add(s.local.name.toLowerCase())

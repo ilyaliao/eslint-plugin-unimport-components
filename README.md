@@ -16,6 +16,41 @@ You can use the [nuxt-eslint-auto-components-import](https://github.com/ilyaliao
 
 > Suggested to use with [nuxt-eslint-auto-explicit-import](https://github.com/antfu/nuxt-eslint-auto-explicit-import)
 
+### With `unplugin-vue-components`
+
+> [!IMPORTANT]
+> Only supports `unplugin-vue-components` v28.5.0 or above
+
+In your `vite.config.ts`:
+
+```ts
+import Components from 'unplugin-vue-components/vite'
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  plugins: [
+    Components({
+      // other options...
+      dumpComponentsInfo: true // <---
+    })
+  ]
+})
+```
+
+And in your `eslint.config.js`:
+
+```js
+import fs from 'node:fs'
+import { createAutoInsert } from 'eslint-plugin-unimport-components'
+
+export default [
+  // your other configs...
+  createAutoComponentsInsert({
+    imports: JSON.parse(fs.readFileSync('.components-info.json', 'utf-8'))
+  }),
+]
+```
+
 ### Setup Manually
 
 Refer to [this file](./eslint.config.ts), where you can setup file paths and use it to insert imports.

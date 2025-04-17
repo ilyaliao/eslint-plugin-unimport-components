@@ -41,7 +41,7 @@ And in your `eslint.config.js`:
 
 ```js
 import fs from 'node:fs'
-import { createAutoInsert } from 'eslint-plugin-unimport-components'
+import { createAutoComponentsInsert } from 'eslint-plugin-unimport-components'
 
 export default [
   // your other configs...

@@ -4,7 +4,7 @@ import type { RuleContext, RuleListener } from '@typescript-eslint/utils/ts-esli
 import type { Import } from './types'
 import { analyze } from '@typescript-eslint/scope-manager'
 import Debug from 'debug'
-import htmlTags from 'html-tags'
+import htmlTags, { voidHtmlTags } from 'html-tags'
 
 const debug = Debug('unimport-components:eslint')
 
@@ -135,7 +135,7 @@ export function createImportsListeners(
             for (const child of node.children)
               visit(child)
 
-            if (htmlTags.includes(node.name))
+            if (htmlTags.includes(node.name) || voidHtmlTags.includes(node.name))
               return
 
             checkId(node)

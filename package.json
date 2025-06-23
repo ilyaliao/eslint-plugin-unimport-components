@@ -2,7 +2,7 @@
   "name": "eslint-plugin-unimport-components",
   "type": "module",
   "version": "0.0.6",
-  "packageManager": "pnpm@10.4.0",
+  "packageManager": "pnpm@10.12.2",
   "description": "Insert Components imports automatically in ESLint.",
   "author": "IlyaL <ilyaliao324@gmail.com>",
   "license": "MIT",
@@ -29,9 +29,10 @@
     "dist"
   ],
   "scripts": {
+    "up": "taze major -wIr",
     "build": "unbuild",
     "dev": "unbuild --stub",
-    "lint": "eslint --flag unstable_ts_config play",
+    "lint": "eslint play",
     "prepublishOnly": "nr build",
     "release": "bumpp && pnpm publish",
     "start": "tsx src/index.ts",
@@ -43,36 +44,37 @@
     "eslint": "^9.0.0 || ^8.45.0"
   },
   "dependencies": {
-    "@typescript-eslint/scope-manager": "^8.24.0",
-    "@typescript-eslint/utils": "^8.24.0",
-    "debug": "^4.4.0",
-    "html-tags": "^4.0.0",
-    "pathe": "^2.0.3"
+    "@typescript-eslint/scope-manager": "catalog:prod",
+    "@typescript-eslint/utils": "catalog:prod",
+    "debug": "catalog:prod",
+    "html-tags": "catalog:prod",
+    "pathe": "catalog:prod"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^4.2.1",
-    "@antfu/ni": "^23.3.1",
-    "@antfu/utils": "^9.0.0",
-    "@types/debug": "^4.1.12",
-    "@types/node": "^22.13.4",
-    "bumpp": "^10.0.3",
-    "eslint": "^9.20.1",
-    "lint-staged": "^15.4.3",
-    "pnpm": "^10.4.0",
-    "simple-git-hooks": "^2.11.1",
-    "tsx": "^4.19.2",
-    "typescript": "^5.7.3",
-    "unbuild": "^3.3.1",
-    "unimport": "^4.1.2",
-    "vite": "^5.4.11",
-    "vitest": "^2.1.5",
-    "vue": "^3.5.13",
-    "vue-router": "^4.4.5"
+    "@antfu/eslint-config": "catalog:dev",
+    "@antfu/ni": "catalog:dev",
+    "@antfu/utils": "catalog:inlined",
+    "@types/debug": "catalog:types",
+    "@types/node": "catalog:types",
+    "bumpp": "catalog:dev",
+    "eslint": "catalog:dev",
+    "lint-staged": "catalog:dev",
+    "pnpm": "catalog:dev",
+    "simple-git-hooks": "catalog:dev",
+    "taze": "catalog:dev",
+    "tsx": "catalog:dev",
+    "typescript": "catalog:dev",
+    "unbuild": "catalog:dev",
+    "unimport": "catalog:play",
+    "vite": "catalog:dev",
+    "vitest": "catalog:testing",
+    "vue": "catalog:play",
+    "vue-router": "catalog:play"
   },
   "simple-git-hooks": {
-    "pre-commit": "pnpm lint-staged"
+    "pre-commit": "pnpm i --frozen-lockfile --ignore-scripts --offline && npx lint-staged"
   },
   "lint-staged": {
-    "*": "eslint --flag unstable_ts_config --fix"
+    "*": "eslint --fix"
   }
 }

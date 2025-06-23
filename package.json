@@ -20,18 +20,18 @@
   ],
   "sideEffects": false,
   "exports": {
-    ".": "./dist/index.mjs"
+    ".": "./dist/index.js"
   },
-  "main": "./dist/index.mjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.mts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
     "up": "taze major -wIr",
-    "build": "unbuild",
-    "dev": "unbuild --stub",
+    "build": "tsdown",
+    "watch": "tsdown --watch",
     "lint": "eslint play",
     "prepublishOnly": "nr build",
     "release": "bumpp && pnpm publish",
@@ -62,9 +62,9 @@
     "pnpm": "catalog:dev",
     "simple-git-hooks": "catalog:dev",
     "taze": "catalog:dev",
+    "tsdown": "catalog:dev",
     "tsx": "catalog:dev",
     "typescript": "catalog:dev",
-    "unbuild": "catalog:dev",
     "unimport": "catalog:play",
     "vite": "catalog:dev",
     "vitest": "catalog:testing",
